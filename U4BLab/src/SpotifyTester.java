@@ -12,5 +12,6 @@ public class SpotifyTester {
         String genre=scan.nextLine();
         p.searchByGenre(genre);
         scan.close();
+        //Genre Checked
     }
 }
