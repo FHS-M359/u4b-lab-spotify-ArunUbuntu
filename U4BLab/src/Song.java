@@ -14,6 +14,9 @@ public class Song {
         year=y;
         genre=g;
     }
+    public String getGenre(){
+        return genre;
+    }
     public String toString(){
         return title+", "+artist+", "+album+", "+duration+", "+year+", "+genre;
     }

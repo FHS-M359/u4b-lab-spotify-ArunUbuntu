@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class SpotifyTester {
     public static void main(String[] args) {
         Playlist p=new Playlist();
@@ -5,6 +6,11 @@ public class SpotifyTester {
         p.read("spotify_unique_years_artists");
         p.read("spotify_with_duplicates");
         System.out.println(p);
-        //Finish Search
+
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter genre: ");
+        String genre=scan.nextLine();
+        p.searchByGenre(genre);
+        scan.close();
     }
 }

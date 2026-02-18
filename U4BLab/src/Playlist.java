@@ -17,6 +17,18 @@ public void read(String filename){
         System.out.println("File error");
     }
 }
+public void searchByGenre(String g){
+    boolean found=false;
+    for(Song s: songs){
+        if(s.getGenre().equalsIgnoreCase(g)){
+            System.out.println(s);
+            found=true;
+        }
+    }
+    if(!found){
+        System.out.println("No songs found in that genre. Input a different one.");
+    }
+}
 public String toString(){
     String result="";
     for(Song s: songs){
