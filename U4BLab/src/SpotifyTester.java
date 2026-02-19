@@ -13,6 +13,6 @@ public class SpotifyTester {
         p.searchByGenre(genre);
         scan.close();
         //Genre Checked
-        //Implementing Selection Sort
+        //Implementing SelectionS Sort
     }
 }
