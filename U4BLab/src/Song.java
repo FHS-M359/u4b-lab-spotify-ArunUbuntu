@@ -17,7 +17,10 @@ public class Song {
     public String getGenre(){
         return genre;
     }
+    public String getArtist(){
+        return artist;
+    }
     public String toString(){
-        return title+", "+artist+", "+album+", "+duration+", "+year+", "+genre;
+        return String.format("%-25s %-20s %-25s %-8d %-6d %-12s", title, artist, album, duration, year,genre);
     }
 }
