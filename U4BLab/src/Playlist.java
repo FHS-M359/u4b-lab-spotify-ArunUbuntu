@@ -55,6 +55,9 @@ public void sortByArtistZA() {
         }
     }
 }
+public void searchByYear(){
+    for(int i=0)
+}
     public String toString(){
     String result="";
     for(Song s: songs){
