@@ -55,8 +55,27 @@ public void sortByArtistZA() {
         }
     }
 }
-public void searchByYear(){
-    for(int i=0)
+public void sortByOldestYr(){
+    for(int i=1;i<songs.size();i++){
+        Song put=songs.get(i);
+        int j=i-1;
+        while(j>=0&&songs.get(j).getYear()>put.getYear()){
+            songs.set(j+1,songs.get(j));
+            j--;
+        }
+        songs.set(j+1,put);
+    }
+}
+public void sortByNewestYr(){
+    for(int i=1;i<songs.size();i++){
+        Song put=songs.get(i);
+        int j=i-1;
+        while(j>=0&&songs.get(j).getYear()<put.getYear()){
+            songs.set(j+1,songs.get(j));
+            j--;
+        }
+        songs.set(j+1,put);
+    }
 }
     public String toString(){
     String result="";
