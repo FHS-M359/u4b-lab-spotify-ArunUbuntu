@@ -55,3 +55,4 @@ public class SpotifyTester {
             scan.close();
     }
     }
+//Still having to work on the other choice
