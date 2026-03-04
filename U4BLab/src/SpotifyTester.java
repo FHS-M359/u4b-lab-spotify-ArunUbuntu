@@ -1,5 +1,13 @@
 import java.util.Scanner;
 public class SpotifyTester {
+    private static final int sortartistaz = 1;
+    private static final int sortartistza = 2;
+    private static final int sortyearoldnew = 3;
+    private static final int sortyearnewold = 4;
+    private static final int searchgenre = 5;
+    private static final int displayall = 6;
+    private static final int quit = 7;
+
     public static void main(String[] args) {
         Playlist p = new Playlist();
         p.read("spotify_unique_25");
@@ -9,51 +17,54 @@ public class SpotifyTester {
 
         Scanner scan = new Scanner(System.in);
         int choice = 0;
-        while(choice!=6) {
+        while (choice != quit) {
             System.out.println("\n===== Spotify Menu =====");
             System.out.println("1-Sort by artist (A->Z)");
             System.out.println("2-Sort by artist (Z->A)");
-            System.out.println("3-Search by genre");
-            System.out.println("4-Sort by year(Oldest->Newest)");
-            System.out.println("5-Sort by year(Newest->Oldest)");
-            System.out.println("6-Quit");
+            System.out.println("3-Sort by year(Oldest->Newest)");
+            System.out.println("4-Sort by year(Newest->Oldest)");
+            System.out.println("5-Search by genre");
+            System.out.println("6-Display all songs");
+            System.out.println("7-Quit");
 
-            System.out.println("Choose: ");
+            System.out.println("Choose(1-7): ");
+            boolean valNum = true;
             try {
                 choice = scan.nextInt();
                 scan.nextLine();
-            }
-            catch(Exception e){
-                System.out.println("Invalid Input. Enter a number 1-6");
+            } catch (Exception e) {
+                System.out.println("Invalid Input. Input 1-7");
                 scan.nextLine();
+                choice = 0;
+                valNum = false;
             }
-            if (choice == 1) {
-                p.sortByArtistAZ();
-                System.out.println("\n Sorted by Artists A-Z!");
-                System.out.println(p);
-            } else if (choice == 2) {
-                p.sortByArtistZA();
-                System.out.println("\n Sorted by Artists Z-A!");
-                System.out.println(p);
-            } else if (choice == 3) {
-                System.out.println("Enter genre: ");
-                String genre = scan.nextLine();
-                p.searchByGenre(genre);
-            }
-            else if(choice==4){
-                p.sortByOldestYr();
-                System.out.println(p);
-            }
-            else if(choice==5){
-                p.sortByNewestYr();
-                System.out.println(p);
-            }
-            else {
-                System.out.println("Invalid choice. Please Input one of the listed choices.");
+            if (valNum) {
+                if (choice == sortartistaz) {
+                    p.sortByArtistAZ();
+                    System.out.println(p);
+                } else if (choice == sortartistza) {
+                    p.sortByArtistZA();
+                    System.out.println(p);
+                } else if (choice == sortyearoldnew) {
+                    p.sortByOldestYr();
+                    System.out.println(p);
+                } else if (choice == sortyearnewold) {
+                    p.sortByNewestYr();
+                    System.out.println(p);
+                } else if (choice == searchgenre) {
+                    System.out.println("Enter genre: ");
+                    String genre=scan.nextLine();
+                    p.searchByGenre(genre);
+                } else if (choice == displayall) {
+                    System.out.println(p);
+                } else if (choice == quit) {
+                    System.out.println("Goodbye!");
+                } else {
+                    System.out.println("Invalid choice. Please Input one of the listed choices.");
+                }
             }
         }
             scan.close();
+        }
     }
-    }
-//Still having to work on the other choice
-//Need to furthermore have comments
+

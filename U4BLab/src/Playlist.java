@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 public class Playlist {
-private ArrayList<Song> songs=new ArrayList<Song>();
+private ArrayList<Song> songs;
+public Playlist(){
+    songs=new ArrayList<Song>();
+}
 public void read(String filename){
     try{
         Scanner file=new Scanner(new File(filename));
@@ -19,6 +22,8 @@ public void read(String filename){
 }
 public void searchByGenre(String g){
     boolean found=false;
+    System.out.println(String.format("%-25s %-20s %-30s %-6s %-12s\n","Title", "Artist", "Album", "Year", "Genre"));
+    System.out.println("-----------------------------------------------------------------------------------------------------------------");
     for(Song s: songs){
         if(s.getGenre().equalsIgnoreCase(g)){
             System.out.println(s);
@@ -47,12 +52,12 @@ public void sortByArtistZA() {
         int maxIndex = i;
         for (int j = i + 1; j < songs.size(); j++) {
             if (songs.get(j).getArtist().compareToIgnoreCase(songs.get(maxIndex).getArtist()) > 0) {
-                maxIndex=j;
+                maxIndex = j;
             }
+        }
             Song have = songs.get(i);
             songs.set(i, songs.get(maxIndex));
             songs.set(maxIndex, have);
-        }
     }
 }
 public void sortByOldestYr(){
@@ -79,8 +84,10 @@ public void sortByNewestYr(){
 }
     public String toString(){
     String result="";
+    result+=String.format("%-25s %-20s %-30s %-6s %-12s\n", "Title", "Artist", "Album", "Year", "Genre");
+    result+="----------------------------------------------------------------------------------------------------------------------------\n";
     for(Song s: songs){
-        result+=s+"\n";
+        result+=s.toString()+ "\n";
     }
     return result;
 }

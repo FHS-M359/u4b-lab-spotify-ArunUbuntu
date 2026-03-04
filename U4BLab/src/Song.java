@@ -23,7 +23,16 @@ public class Song {
     public int getYear(){
         return year;
     }
+    public String getTitle(){
+        return title;
+    }
+    public String getAlbum(){
+        return album;
+    }
+    public int getDuration(){
+        return duration;
+    }
     public String toString(){
-        return String.format("%-25s %-20s %-25s %-8d %-6d %-12s", title, artist, album, duration, year,genre);
+        return String.format("%-25s %-20s %-30s %-6d %-12s", title, artist, album, year,genre);
     }
 }
