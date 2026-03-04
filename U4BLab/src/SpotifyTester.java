@@ -41,21 +41,27 @@ public class SpotifyTester {
             if (valNum) {
                 if (choice == sortartistaz) {
                     p.sortByArtistAZ();
+                    System.out.println("Everything sorted A-Z by artist!");
                     System.out.println(p);
                 } else if (choice == sortartistza) {
                     p.sortByArtistZA();
+                    System.out.println("Everything sorted Z-A by artist!");
                     System.out.println(p);
                 } else if (choice == sortyearoldnew) {
                     p.sortByOldestYr();
+                    System.out.println("Everything sorted oldest-newest by year!");
                     System.out.println(p);
                 } else if (choice == sortyearnewold) {
                     p.sortByNewestYr();
+                    System.out.println("Everything sorted newest-oldest by year!");
                     System.out.println(p);
                 } else if (choice == searchgenre) {
                     System.out.println("Enter genre: ");
                     String genre=scan.nextLine();
                     p.searchByGenre(genre);
+                    System.out.println("Done searching that genre!");
                 } else if (choice == displayall) {
+                    System.out.println("Displaying all songs!");
                     System.out.println(p);
                 } else if (choice == quit) {
                     System.out.println("Goodbye!");
