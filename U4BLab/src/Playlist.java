@@ -1,12 +1,21 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+//Stores a list of songs
 public class Playlist {
 private ArrayList<Song> songs;
+//Initializes the playlist
 public Playlist(){
     songs=new ArrayList<Song>();
 }
-public void read(String filename){
+
+    /**
+     *Read songs data from a txt file and puts song objects into the Playlist
+     * Expects:title,artist,album,duration,releaseYear,genre
+     *
+     * @param filename file name to read in from
+     */
+    public void read(String filename){
     try{
         Scanner file=new Scanner(new File(filename));
         while(file.hasNextLine()){
@@ -20,7 +29,12 @@ public void read(String filename){
         System.out.println("File error");
     }
 }
-public void searchByGenre(String g){
+
+    /**
+     * Does linear search through the playlist to display all songs in a specific genre and prints
+     * @param g
+     */
+    public void searchByGenre(String g){
     boolean found=false;
     System.out.println(String.format("%-25s %-20s %-30s %-6s %-12s\n","Title", "Artist", "Album", "Year", "Genre"));
     System.out.println("-----------------------------------------------------------------------------------------------------------------");
@@ -34,7 +48,11 @@ public void searchByGenre(String g){
         System.out.println("No songs found in that genre. Input a different one.");
     }
 }
-public void sortByArtistAZ(){
+
+    /**
+     * Sorts the playlist by artist name(A-Z) using selection sort features
+     */
+    public void sortByArtistAZ(){
     for(int i=0;i<songs.size()-1;i++){
         int minIndex=i;
         for(int j=i+1;j<songs.size();j++){
@@ -47,7 +65,11 @@ public void sortByArtistAZ(){
         songs.set(minIndex,have);
     }
 }
-public void sortByArtistZA() {
+
+    /**
+     * Sorts the playlist by artist name(Z-A) using selection sort features
+     */
+    public void sortByArtistZA() {
     for (int i = 0; i < songs.size() - 1; i++) {
         int maxIndex = i;
         for (int j = i + 1; j < songs.size(); j++) {
@@ -60,7 +82,11 @@ public void sortByArtistZA() {
             songs.set(maxIndex, have);
     }
 }
-public void sortByOldestYr(){
+
+    /**
+     * Sorts the playlist by release year from oldest to newest using insertion sort features
+     */
+    public void sortByOldestYr(){
     for(int i=1;i<songs.size();i++){
         Song put=songs.get(i);
         int j=i-1;
@@ -71,7 +97,11 @@ public void sortByOldestYr(){
         songs.set(j+1,put);
     }
 }
-public void sortByNewestYr(){
+
+    /**
+     * Sorts the playlist by release year from newest to oldest using insertion sort features
+     */
+    public void sortByNewestYr(){
     for(int i=1;i<songs.size();i++){
         Song put=songs.get(i);
         int j=i-1;
@@ -82,6 +112,11 @@ public void sortByNewestYr(){
         songs.set(j+1,put);
     }
 }
+
+    /**
+     *
+     * @return a neatly formatted String of the table to match the Song rows
+     */
     public String toString(){
     String result="";
     result+=String.format("%-25s %-20s %-30s %-6s %-12s\n", "Title", "Artist", "Album", "Year", "Genre");

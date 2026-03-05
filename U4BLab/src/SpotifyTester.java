@@ -8,13 +8,19 @@ public class SpotifyTester {
     private static final int displayall = 6;
     private static final int quit = 7;
 
+    /**
+     * Main base for the Spotify Playlist Program:
+     * Loads song files, displays menu, and performs
+     * sorting and searching features based off user input
+     * @param args
+     */
     public static void main(String[] args) {
         Playlist p = new Playlist();
         p.read("spotify_unique_25");
         p.read("spotify_unique_years_artists");
         p.read("spotify_with_duplicates");
         System.out.println(p);
-
+        //Options user can pick from
         Scanner scan = new Scanner(System.in);
         int choice = 0;
         while (choice != quit) {
@@ -26,7 +32,7 @@ public class SpotifyTester {
             System.out.println("5-Search by genre");
             System.out.println("6-Display all songs");
             System.out.println("7-Quit");
-
+            //If it's not a valid choice, it won't crash
             System.out.println("Choose(1-7): ");
             boolean valNum = true;
             try {

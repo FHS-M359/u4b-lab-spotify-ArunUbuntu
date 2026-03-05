@@ -1,3 +1,5 @@
+//One track in a playlist
+//Prints info in a sorted row
 public class Song {
     private String title;
     private String artist;
@@ -32,6 +34,11 @@ public class Song {
     public int getDuration(){
         return duration;
     }
+
+    /**
+     *
+     * @return a clean String of this song
+     */
     public String toString(){
         return String.format("%-25s %-20s %-30s %-6d %-12s", title, artist, album, year,genre);
     }
